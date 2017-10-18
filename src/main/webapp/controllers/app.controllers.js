@@ -52,25 +52,26 @@ var app = angular.module('tkmcApp');
 
 app.controller("loginCtrl", [ '$scope', '$http', '$window', function($scope, $http, $window) {
  
-    $http.defaults.headers.post["Content-Type"] = "application/json";
+    $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded; charset=utf-8";
      
+    
     $scope.submitLogin = function() {
         $http({
-            url : 'http://localhost:8080/login',
+            url : '/login',
             method : "POST",
             data : {
-                'userID' : $scope.userid,
-                'password' : $scope.password
-            }
+                'userID' : $scope.tkmc.userid,
+                'password' : $scope.tkmc.password
+            } 
         }).success(function(data, response, status) {
             console.log(response.data);
             $scope.data = data;
-            //$scope.message = response.data;
-             $window.location = '/tkmc/welcome.html';
+           $scope.message = response.data;
+            $window.location = '/tkmc/welcome.html';
         }, function(response) {
-            //fail case
+            //fail case 
             console.log(response);
-            $scope.message = response;
+            $scope.message = response; 
         });
  
     };

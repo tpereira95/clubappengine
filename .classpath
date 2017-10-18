@@ -12,5 +12,6 @@
 	<classpathentry kind="var" path="M2_REPO/com/google/errorprone/error_prone_annotations/2.0.12/error_prone_annotations-2.0.12.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/mockito/mockito-all/1.10.19/mockito-all-1.10.19.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Trevor Pereira/Documents/development/json-simple-1.1.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/json/json/20160810/json-20160810.jar"/>
 	<classpathentry kind="output" path="target/tkmc915-1.0-SNAPSHOT/WEB-INF/classes"/>
 </classpath>
