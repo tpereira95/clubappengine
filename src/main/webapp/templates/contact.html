@@ -1,0 +1,59 @@
+<div id="templatemo-contact">
+            <div class="container">
+                <div class="row">
+                    <div class="templatemo-line-header head_contact">
+                        <div class="text-center">
+                            <hr class="team_hr team_hr_left hr_gray"/><span class="txt_darkgrey">CONTACT US</span>
+                            <hr class="team_hr team_hr_right hr_gray"/>
+                        </div>
+                    </div>
+<!--
+                    <div class="col-md-8" ng-controller="mainCtrl">
+                        <ui-gmap-google-map center="map.center" zoom="map.zoom" options="options"></ui-gmap-google-map>
+                        <div class="clearfix"></div>
+                        <i>You can find, <span class="txt_orange">TKMC Canada</span> in Renfrew Ontario.</i>
+                    </div>
+-->
+                    <div class="col-md-8">
+                        <div class="templatemo-contact-map" id="map-canvas"> </div>  
+                        <div class="clearfix"></div>
+                        <i>You can find, <span class="txt_orange">TKMC Canada</span> in Renfrew Ontario.</i>
+                    </div>
+                    <div class="col-md-4 contact_right" ng-controller="TKMCFormController as formCtrl" cg-busy="req">
+                        <p>TKMC Canada Renfrew Lodge - Commander's Address</p>
+                        <p><img src="images/location.png" alt="icon 1" />8th Street, Renfrew</p>
+                        <p><img src="images/phone1.png"  alt="icon 2" />613 433-2724</p>
+                        <p><img src="images/globe.png" alt="icon 3" /><a class="link_orange" href="#"><span class="txt_orange">www.tkmc-canada.com</span></a></p>
+<!--                         <div class="spinner" ng-show="loading"></div>-->
+                        <form name="tkmcContactForm" class="form-horizontal">
+                            <script type="text/ng-template" id="alert.html">
+                                <div ng-transclude></div>
+                            </script>
+                            <!-- Alerts -->
+                            <div uib-alert template-url="alert.html" ng-if="showSuccessAlert" ng-class="'alert-success'" dismiss-on-timeout=5000 close='closeMessage()'>
+                                    {{successMessage}}
+                            </div> 
+                            <div uib-alert template-url="alert.html" ng-if="showErrorAlert"  ng-class="'alert-danger'"   dismiss-on-timeout=5000 close='closeMessage()'>
+                                    {{errorMessage}}
+                            </div>
+                            
+                             <div class="clearfix"></div>
+                            <!-- Show spinner while contact details are saved   -->
+                           
+                            <div class="form-group">
+                                <input type="text" class="form-control" ng-model="contactName" placeholder="Your Name..." maxlength="40" />
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" ng-model="contactEmail" placeholder="Your Email..." maxlength="40" />
+                            </div>
+                            <div class="form-group">
+                                <textarea  class="form-control" style="height: 130px;" ng-model="contactMessage" placeholder="Write down your message..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-orange pull-right" ng-click="formsubmit(tkmcContactForm.$valid)"  ng-disabled="tkmcContactForm.$invalid">SEND</button>
+                            
+                        </form>
+                        	 
+                    </div>
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </div><!-- /#templatemo-contact -->
