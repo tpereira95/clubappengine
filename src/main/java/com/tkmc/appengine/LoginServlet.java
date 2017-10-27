@@ -46,8 +46,10 @@ public class LoginServlet extends HttpServlet {
 		 userObj.put("password", password);
 		 resp.setHeader("Access-Control-Allow-Origin", "*");
 		 resp.setContentType("application/json"); 
-		 resp.getWriter().write(userObj.toString());
 		 
+		 resp.getWriter().write(userObj.toString());
+		 req.setAttribute("username", userid);
+		 req.getRequestDispatcher("/welcome.jsp").forward(req, resp);
 		 
 		 
 		

@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 
 <!-- [END_EXCLUDE] -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html lang="en" ng-app="tkmcApp">
 <head>
   <link href='//fonts.googleapis.com/css?family=Marmelad' rel='stylesheet' type='text/css'>
@@ -26,7 +27,7 @@
   <p>This is </p>
   <table>
     <tr>
-      <td colspan="2" style="font-weight:bold;">Welcome {{userid}}</td>
+      <td colspan="2" style="font-weight:bold;">Welcome ${username}</td>
     </tr>
     <tr>
       <td><a href='/hello'>The servlet</a></td>
