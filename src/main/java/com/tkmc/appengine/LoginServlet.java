@@ -31,18 +31,10 @@ public class LoginServlet extends HttpServlet {
 	 @Override
 	  public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
 	      IOException {
-		 //String userid = (String) req.getParameter(USERID);
-		 //String password = (String)req.getParameter(PASSWORD);
+		 String userid = (String) req.getParameter(USERID);
+		 String password = (String)req.getParameter(PASSWORD);
 		 
-		 StringBuilder sb = new StringBuilder();
-	        BufferedReader br = req.getReader();
-	        String str = null;
-	        while ((str = br.readLine()) != null) {
-	            sb.append(str);
-	        }
-	        JSONObject jObj = new JSONObject(sb.toString());
-	        String userid = jObj.getString("userID");
-	        String password = jObj.getString("password");
+		 
 		 
 		
 		 System.out.println("userid is " + userid + " " + password);
