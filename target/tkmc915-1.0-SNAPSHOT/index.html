@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="tkmcApp">
+    <head>
+        <title>Templar Knights MC Canada</title>
+        <meta name="keywords" content="templar knights, motorcycle ride, bruce bigras, renfrew, charity hosted rides, toys for kids" />
+		<meta name="description" content="Templar Knights Canada is a motorcycle club that is active in our communities by doing charitable work" />
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--<link rel="shortcut icon" href="PUT YOUR FAVICON HERE">-->
+        
+        <!-- Google Web Font Embed -->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+        
+        <link rel="canonical" href="www.renfrewtkmc.org">
+        
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        
+        <!-- Bootstrap core CSS -->
+        <link href="css/bootstrap.css" rel='stylesheet' type='text/css'>
+
+        <!-- Custom styles for this template -->
+        <link href="js/colorbox/colorbox.css"  rel='stylesheet' type='text/css'>
+        <link href="css/templatemo_style.css"  rel='stylesheet' type='text/css'>
+        <link href="css/angular-busy.css"  rel='stylesheet' type='text/css'>
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+        
+        <script src="libs/angular.min.js"></script>
+        <script src="libs/angular-route.min.js"></script>
+        <script src="js/angular-animate.min.js"></script>
+        <script src="js/angular-touch.min.js"></script>
+        <script src="js/angular-sanitize.js"></script>
+        <script src="js/ui-bootstrap-tpls-2.5.0.min.js"></script>
+        <script src="js/angular-busy.min.js"></script>
+        <script src="module/app.module.js"></script>
+        <script src="controllers/app.controllers.js"></script>
+        <script src="directives/app.directives.js"></script>
+        <script src="js/jquery.min.js"></script>
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-96255929-1', 'auto');
+          ga('send', 'pageview');
+        </script>
+
+        <!--<script type="text/javascript">
+            $(window).load(function(){
+                $('#myModal').modal('show');
+            });
+        </script>-->
+
+
+    </head>
+    
+    <body>
+       
+<!--<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+   
+    <div class="modal-content">
+      <div class="modal-header">
+          <div class="text-center"><img src="images/TKMCLogo.png" title="TKMC" /></div>
+        
+        <h4 class="modal-title txt_orange text-center">Join us for the 5th Annual Toys for Kids Ride!</h4>
+        <h4 class="modal-title txt_darkgrey text-center">Saturday September 9th, 2017</h4>
+      </div>
+    
+      <div class="modal-body text-center">
+         <img src="images/toys-for-kids-2017.jpg" class="img-responsive" alt="toys for kids TKMC ride 2017">
+      </div>
+    
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>-->
+
+
+
+        <div class="templatemo-top-bar" id="templatemo-top">
+            <div class="container">
+                <div class="subheader">
+                    <div id="phone" class="pull-left">
+                            <img src="images/phone.png" alt="phone"/>
+                            613 433-2724
+                    </div>
+                    <div id="email" class="pull-right">
+                            <img src="images/email.png" alt="email"/>
+                            tkmc_renfrew@hotmail.com
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="templatemo-top-menu">
+            <div class="container">
+                <!-- Static navbar -->
+                <div class="navbar navbar-default" role="navigation">
+                    <div class="container">
+                        <div class="navbar-header">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                </button>
+                                <a href="#" class="navbar-brand"><img src="images/TKMCLogo.png" title="TKMC" /></a>
+                        </div>
+                        <div class="login-form" ng-controller="loginCtrl">
+                            <span><p class="txt_orange">Member Login</p></span>
+                            <form class="form-inline" ng-submit="submitLogin()">
+                                  <div class="form-group">
+                                    <label for="userid">UserID:</label>
+                                    <input id="LoginUserID" type="text" class="form-control input-sm" name="userID" ng-model="tkmc.userid">
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="password">Password:</label>
+                                    <input id="loginPassword" type="password" class="form-control input-sm" name="password" ng-model="tkmc.password">
+                                  </div>
+                                  <button id="loginSubmit" type="submit" class="btn btn-default login-form-submit">Submit
+                                  </button>
+                            </form>
+                        </div>
+                        <div class="navbar-collapse collapse" id="templatemo-nav-bar">
+                            <ul class="nav navbar-nav navbar-right" style="margin-top: 40px;">
+                                <li class="active"><a href="#templatemo-top">HOME</a></li>
+                                <li><a href="#templatemo-about">ABOUT</a></li>
+                                <li><a href="#templatemo-portfolio">TKMC IN THE COMMUNITY</a></li>
+                                <li><a href="#templatemo-blog">RIDE SCHEDULE</a></li>
+                                <li><a rel="nofollow" href="https://www.facebook.com/profile.php?id=100008592064625&fref=ts" 
+                                		class="external-link" target="_blank">ON FACEBOOK</a></li>
+                                        <li><a rel="nofollow" href="http://www.templarknightsmc.com/" 
+                                		class="external-link" target="_blank">GRAND LODGE</a></li>
+                                <li><a href="#templatemo-contact">CONTACT</a></li>
+                            </ul>
+                        </div><!--/.nav-collapse -->
+                    </div><!--/.container-fluid -->
+                </div><!--/.navbar -->
+            </div> <!-- /container -->
+        </div>
+        
+        <tkmc-carousel></tkmc-carousel>
+
+        <div class="templatemo-welcome" id="templatemo-welcome">
+            <div class="container">
+                <div class="templatemo-slogan text-center">
+                    <span class="txt_darkgrey">Welcome to </span><span class="txt_orange">The Templar Knights MC Canada</span>
+                    <p class="txt_slogan"><i>**We are in no way affiliated with the Freemasons or any Masonic Lodge.</i></p>
+                </div>	
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div>
+            <p class="about_text margin-about">
+                The Knights Templar was a fraternal order that was founded in the 11th century and were renowned for their fierceness and courage in battle.Today, the Templar Knights Motorcycle Club displays courage and goodwill in other ways. We organize fund-raising activities, honor the Countries in which we live, honor all branches of Military Service and proudly support all local government agencies and public safety.
+            </p>
+        </div>
+        <div class="clearfix"></div>
+        <div id="templatemo-blog">
+            <div class="container">
+                <div class="row">
+                    <div class="templatemo-line-header" style="margin-top: 0px;" >
+                        <div class="text-center">
+                            <hr class="team_hr team_hr_left hr_gray"/><span class="span_blog txt_darkgrey">RIDE SCHEDULE</span>
+                            <hr class="team_hr team_hr_right hr_gray" />
+                        </div>
+                    </div>
+                    <br class="clearfix"/>
+                </div>
+                
+                <div class="blog_box">
+                    <div class="col-sm-5 col-md-6 blog_post">
+                        <ul class="list-inline">
+                            <li class="col-md-4">
+                                <a href="toy-ride-2017.html">
+                                    <img class="img-responsive" src="images/Templar-Knights-2017-Toys-for-Kids-Ride.png" alt="gallery 1" />
+                                </a>
+                            </li>
+                            <li  class="col-md-8">
+                                <div class="pull-left">
+                                    <span class="blog_header">Toys for Kids Ride 2017</span><br/>
+                                    <span>Hosted by : <a class="link_orange" href="toy-ride-2017.html"><span class="txt_orange">TKMC Canada</span></a></span>
+                                </div>
+                                <div class="pull-right">
+                                    <a class="btn btn-orange" href="toy-ride-2017.html" role="button">9 September 2017</a>
+                                </div>
+                                <div class="clearfix"> </div>
+                                <p class="blog_text">
+                                    Join us the 5th anniversary of The Templar Knights Toys for kids ride September 9th 2017. Bring a toy to donate that will help make Christmas that much brighter for families in our community! 
+                                </p>
+                            </li>
+                        </ul>
+                    </div> <!-- /.blog_post 1 -->
+                    
+                    <div class="col-sm-5 col-md-6 blog_post">
+                        <ul class="list-inline">
+                            <li class="col-md-4"><a href="bruce-bigras-ride-2017.html">
+                                <img class="img-responsive" src="images/Templar-Knights-2017-Bruce-Poppa-Bigras-Ride.gif" alt="gallery 2" /></a>
+                            </li>
+                            <li class="col-md-8">
+                                <div class="pull-left">
+                                    <span class="blog_header">Bruce "Poppa" Bigras Ride 2017</span><br/>
+                                    <span>Hosted by : <a class="link_orange" href="bruce-bigras-ride-2017.html"><span class="txt_orange">TKMC Canada</span></a></span>
+                                </div>
+                                <div class="pull-right">
+                                    <a class="btn btn-orange" href="bruce-bigras-ride-2017.html" role="button">27 May 2017</a>
+                                </div>
+                                <div class="clearfix"> </div>
+                                <p class="blog_text">
+                                        Bruce "Poppa" Bigras was one of the "Original 9" for the 1st Templar Knights MC expansion lodge in Canada. His dedication and commitment to our club helped it reach official status. Bruce had a passion for life and family. 
+                                        Our Grand Lodge in Utah elevated him to "Honorary Knight" although he passed away before the full knighting ceremony. We continue to honor our brother with the " Bruce Poppa Bigras Memorial Ride" every spring with the money raised going to those locally in need such as the local food bank. His memory lives on through the family he loved and those he called - "Brothers". 
+                                </p>
+                            </li>
+                        </ul>	
+                    </div><!-- /.blog_post 2 -->
+                </div>
+            </div>
+        </div>
+    <!-- 
+        Begin Club Members
+        -->
+        <div class="templatemo-team" id="templatemo-about">
+            <div class="container top-buffer">
+                <div class="row">
+                    <div class="templatemo-line-header">
+                        <div class="text-center">
+                            <hr class="team_hr team_hr_left"/><span>COUNCIL</span>
+                            <hr class="team_hr team_hr_right" />
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"> </div> 
+                    <ul class="row row_team">
+                        <li class="col-lg-3 col-md-3 col-sm-6 ">
+                            <div class="text-center">
+                                <div class="member-thumb">
+                                    <img src="images/clint1.jpg" class="img-responsive" alt="reaper" />
+                                    <div class="thumb-overlay">
+                                    </div>
+                                </div>
+                                <div class="team-inner">
+                                    <p class="team-inner-header">CLINT "REAPER" MCWHIRTER</p>
+                                    <p class="team-inner-subtext">Commander Renfrew Original 9</p>
+                                    <p class="team-inner-subtext">Knight</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-lg-3 col-md-3 col-sm-6 ">
+                            <div class="text-center">
+                                <div class="member-thumb">
+                                    <img src="images/smoke.jpg" class="img-responsive" alt="smoke" />
+                                    <div class="thumb-overlay">
+                                    </div>
+                                </div>
+                                <div class="team-inner">
+                                    <p class="team-inner-header">ALAN "SMOKE" BELL</p>
+                                    <p class="team-inner-subtext">Captain Renfrew Original 9</p>
+                                    <p class="team-inner-subtext">Knight</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-lg-3 col-md-3 col-sm-6 ">
+                            <div class="text-center">
+                                <div class="member-thumb">
+                                    <img src="images/closer.jpg" class="img-responsive" alt="closer" />
+                                    <div class="thumb-overlay">
+                                    </div>
+                                </div>
+                                <div class="team-inner">
+                                    <p class="team-inner-header">GARY "CLOSER" COBURN</p>
+                                    <p class="team-inner-subtext">Master Sargent</p>
+                                    <p class="team-inner-subtext">Knight</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-lg-3 col-md-3 col-sm-6 ">
+                            <div class="text-center">
+                                <div class="member-thumb">
+                                    <img src="images/diesel.jpg" class="img-responsive" alt="diesel" />
+                                    <div class="thumb-overlay">
+                                    </div>
+                                </div>
+                                <div class="team-inner">
+                                    <p class="team-inner-header">GRAHAM "DIESEL" BROWN</p>
+                                    <p class="team-inner-subtext">Sargent At Arms Renfrew Orignial 9</p>
+                                    <p class="team-inner-subtext">Knight</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="clearfix"> </div>
+                    <ul class="row row_team">
+                        <li class="col-lg-3 col-md-3 col-sm-6 ">
+                            <div class="text-center">
+                                <div class="member-thumb">
+                                    <img src="images/tkcross.jpg" class="img-responsive" alt="Road Sargent" />
+                                    <div class="thumb-overlay">
+                                    </div>
+                                </div>
+                                <div class="team-inner">
+                                    <p class="team-inner-header"></p>
+                                    <p class="team-inner-subtext">Road Sargent</p>
+                                    <p class="team-inner-subtext">Knight</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-lg-3 col-md-3 col-sm-6 ">
+                            <div class="text-center">
+                                <div class="member-thumb">
+                                    <img src="images/hammer.jpg" class="img-responsive" alt="hammer" />
+                                    <div class="thumb-overlay">
+                                    </div>
+                                </div>
+                                <div class="team-inner">
+                                    <p class="team-inner-header">DALE "HAMMER" PERNEEL</p>
+                                    <p class="team-inner-subtext">Marshall Renfrew Original 9</p>
+                                    <p class="team-inner-subtext">Knight</p>
+                                </div>
+                            </div>
+                        </li>
+                       
+                        <li class="col-lg-3 col-md-3 col-sm-6 ">
+                            <div class="text-center">
+                                <div class="member-thumb">
+                                    <img src="images/tkcross.jpg" class="img-responsive" alt="open" />
+                                    <div class="thumb-overlay">
+                                    </div>
+                                </div>
+                                <div class="team-inner">
+                                    <p class="team-inner-header"></p>
+                                    <p class="team-inner-subtext">Under Marshall</p>
+                                    <p class="team-inner-subtext">Knight</p>
+                                </div>
+                            </div>
+                        </li>
+                </ul>
+                <div class="row">
+                    <div class="templatemo-line-header">
+                        <div class="text-center">
+                            <hr class="team_hr team_hr_left"/><span>CLUB MEMBERS</span>
+                            <hr class="team_hr team_hr_right" />
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+                    <ul class="row row_team">
+                         <li class="col-lg-3 col-md-3 col-sm-6 ">
+                            <div class="text-center">
+                                <div class="member-thumb">
+                                    <img src="images/hardrive.jpg" class="img-responsive" alt="hard drive" />
+                                    <div class="thumb-overlay">
+                                    </div>
+                                </div>
+                                <div class="team-inner">
+                                    <p class="team-inner-header">TREVOR "HARD DRIVE" PEREIRA</p>
+                                     <p class="team-inner-subtext">Knight - Renfrew Original 9</p>
+                                    
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li class="col-lg-3 col-md-3 col-sm-6 ">
+                            <div class="text-center">
+                                <div class="member-thumb">
+                                    <img src="images/Ez.jpg" class="img-responsive" alt="big ezzy" />
+                                    <div class="thumb-overlay">
+                                    </div>
+                                </div>
+                                <div class="team-inner">
+                                    <p class="team-inner-header">EZ "BIG EZZY" VALIQUETTE</p>
+                                    <p class="team-inner-subtext">Knight - Renfrew Original 9</p>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li class="col-lg-3 col-md-3 col-sm-6 ">
+                            <div class="text-center">
+                                <div class="member-thumb">
+                                    <img src="images/Paul.jpg" class="img-responsive" alt="joker" />
+                                    <div class="thumb-overlay">
+                                    </div>
+                                </div>
+                                <div class="team-inner">
+                                    <p class="team-inner-header">PAUL "JOKER" MCCORMICK</p>
+                                    <p class="team-inner-subtext">Knight</p>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li class="col-lg-3 col-md-3 col-sm-6 ">
+                            <div class="text-center">
+                                <div class="member-thumb">
+                                    <img src="images/Skip.jpg" class="img-responsive" alt="skip" />
+                                    <div class="thumb-overlay">
+                                    </div>
+                                </div>
+                                <div class="team-inner">
+                                    <p class="team-inner-header">GORDON "SKIP" HARRINGTON</p>
+                                    <p class="team-inner-subtext">Knight</p>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li class="col-lg-3 col-md-3 col-sm-6 ">
+                            <div class="text-center">
+                                <div class="member-thumb"> 
+                                    <img src="images/capt4.jpg" class="img-responsive" alt="capt" /> 
+                                    <div class="thumb-overlay">
+                                    </div>
+                                </div>
+                                <div class="team-inner">
+                                    <p class="team-inner-header">KIRK "CAPT" ANDERSON</p>
+                                    <p class="team-inner-subtext">Knight</p>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li class="col-lg-3 col-md-3 col-sm-6 ">
+                            <div class="text-center">
+                                <div class="member-thumb">
+                                    <img src="images/tkcross.jpg" class="img-responsive" alt="ghost" />
+                                    <div class="thumb-overlay">
+                                    </div>
+                                </div>
+                                <div class="team-inner">
+                                    <p class="team-inner-header">JOSH "GHOST" CHRETIAN</p>
+                                    <p class="team-inner-subtext">Knight - Renfrew Original 9</p>
+                                </div>
+                            </div>
+                        </li>
+                        
+                         
+                
+                         <li class="col-lg-3 col-md-3 col-sm-6 ">
+                            <div class="text-center">
+                                <div class="member-thumb">
+                                    <img src="images/joshm.jpg" class="img-responsive" alt="josh" />
+                                    <div class="thumb-overlay">
+                                    </div>
+                                </div>
+                                <div class="team-inner">
+                                    <p class="team-inner-header">Josh "Hawk" McCready</p>
+                                    <p class="team-inner-subtext">Knight</p>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li class="col-lg-3 col-md-3 col-sm-6 ">
+                            <div class="text-center">
+                                <div class="member-thumb">
+                                    <img src="images/woodzy-profile.jpg" class="img-responsive" alt="earle" />
+                                    <div class="thumb-overlay">
+                                    </div>
+                                </div>
+                                <div class="team-inner">
+                                    <p class="team-inner-header">Earle "Woodsy" Woods</p>
+                                    <p class="team-inner-subtext">Knight</p>
+                                </div>
+                            </div>
+                        </li>
+                   </ul>
+                <div class="row">
+                    <div class="templatemo-line-header">
+                        <div class="text-center">
+                            <hr class="team_hr team_hr_left"/>  <span>PROVISIONALS</span>
+                            <hr class="team_hr team_hr_right" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="templatemo-line-header">
+                        <div class="text-center">
+                            <hr class="team_hr team_hr_left"/>  <span>PROSPECTS</span>
+                            <hr class="team_hr team_hr_right" />
+                        </div>
+                    </div>
+                </div>
+                    <div class="clearfix"> </div>
+                     <ul class="row row_team">
+                      <li class="col-lg-3 col-md-3 col-sm-6 ">
+                            <div class="text-center">
+                                <div class="member-thumb">
+                                    <img src="images/Paul1.jpg" class="img-responsive" alt="Paul M" />
+                                    <div class="thumb-overlay">
+                                    </div>
+                                </div>
+                                <div class="team-inner">
+                                    <p class="team-inner-header">Paul McAdam</p>
+                                    <p class="team-inner-subtext">Prospect</p>
+                                </div>
+                            </div>
+                        </li>
+                         <li class="col-lg-3 col-md-3 col-sm-6 ">
+                            <div class="text-center">
+                                <div class="member-thumb">
+                                    <img src="images/tkcross.jpg" class="img-responsive" alt="Jim M" />
+                                    <div class="thumb-overlay">
+                                    </div>
+                                </div>
+                                <div class="team-inner">
+                                    <p class="team-inner-header">Jim Meness</p>
+                                    <p class="team-inner-subtext">Prospect</p>
+                                </div>
+                            </div>
+                        </li>
+                         <li class="col-lg-3 col-md-3 col-sm-6 ">
+                            <div class="text-center">
+                                <div class="member-thumb">
+                                    <img src="images/Terry1.jpg" class="img-responsive" alt="Terry" />
+                                    <div class="thumb-overlay">
+                                    </div>
+                                </div>
+                                <div class="team-inner">
+                                    <p class="team-inner-header">Terry Reabel</p>
+                                    <p class="team-inner-subtext">Prospect</p>
+                                </div>
+                            </div>
+                        </li>
+                         <li class="col-lg-3 col-md-3 col-sm-6 ">
+                            <div class="text-center">
+                                <div class="member-thumb">
+                                    <img src="images/Randy1.jpg" class="img-responsive" alt="Terry" />
+                                    <div class="thumb-overlay">
+                                    </div>
+                                </div>
+                                <div class="team-inner">
+                                    <p class="team-inner-header">Randy Olmstead</p>
+                                    <p class="team-inner-subtext">Prospect</p>
+                                </div>
+                            </div>
+                        </li>
+                         <li class="col-lg-3 col-md-3 col-sm-6 ">
+                            <div class="text-center">
+                                <div class="member-thumb">
+                                    <img src="images/Daryl1.jpg" class="img-responsive" alt="Terry" />
+                                    <div class="thumb-overlay">
+                                    </div>
+                                </div>
+                                <div class="team-inner">
+                                    <p class="team-inner-header">Daryl Fiebig</p>
+                                    <p class="team-inner-subtext">Prospect</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+            </div>
+            
+        </div><!-- /.templatemo-team -->
+
+        <div id="templatemo-portfolio" >
+            <div class="container">
+                <div class="row">
+                    <div class="templatemo-line-header" >
+                        <div class="text-center">
+                            <hr class="team_hr team_hr_left hr_gray"/><span class="txt_darkgrey">TKMC COMMUNITY</span>
+                            <hr class="team_hr team_hr_right hr_gray" />
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="templatemo-gallery-category" style="font-size:16px; margin-top:80px;">
+                        <div class="text-center">
+                            <a class="active" href=".gallery">All</a> / <a href=".gallery-national">Club National </a>/ <a href=".gallery-parade">Community Support</a> / <a href=".gallery-rides">Club Rides</a> / <a href=".gallery-fun">Fun Pictures!</a>							
+                        </div>
+                    </div>
+                </div> <!-- /.row -->
+
+
+                <div class="clearfix"></div>
+                <div class="text-center">
+                    <ul class="templatemo-project-gallery" >
+                        <li class="col-lg-2 col-md-2 col-sm-2  gallery gallery-parade" >
+                            <a class="colorbox" href="images/tkmcsantaparade.jpeg" data-group="gallery-parade">
+                                <div class="templatemo-project-box">
+
+                                    <img src="images/tkmcsantaparade.jpeg" class="img-responsive" alt="gallery" />
+
+                                    <div class="project-overlay">
+                                        <h5>SANTA CLAUS PARADE</h5>
+                                        <hr />
+                                        <h4>FLOAT</h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="col-lg-2 col-md-2 col-sm-2  gallery gallery-parade" >
+                            <a class="colorbox" href="images/parade-meeting.jpg" data-group="gallery-parade">
+                                <div class="templatemo-project-box">
+
+                                    <img src="images/parade-meeting.jpg" class="img-responsive" alt="gallery" />
+
+                                    <div class="project-overlay">
+                                        <h5>SANTA CLAUS PARADE</h5>
+                                        <hr />
+                                        <h4>Meeting before</h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="col-lg-2 col-md-2 col-sm-2  gallery gallery-parade" >
+                            <a class="colorbox" href="images/parade-santa.jpeg" data-group="gallery-parade">
+                                <div class="templatemo-project-box">
+
+                                    <img src="images/parade-santa.jpeg" class="img-responsive" alt="gallery" />
+
+                                    <div class="project-overlay">
+                                        <h5>SANTA CLAUS PARADE</h5>
+                                        <hr />
+                                        <h4>Lining up for Santa!</h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                         <li class="col-lg-2 col-md-2 col-sm-2  gallery gallery-parade" >
+                            <a class="colorbox" href="images/parade-woodsy-josh.jpg" data-group="gallery-parade">
+                                <div class="templatemo-project-box">
+
+                                    <img src="images/parade-woodsy-josh.jpg" class="img-responsive" alt="gallery" />
+
+                                    <div class="project-overlay">
+                                        <h5>SANTA CLAUS PARADE</h5>
+                                        <hr />
+                                        <h4>Building the float</h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="col-lg-2 col-md-2 col-sm-2  gallery gallery-parade" >
+                            <a class="colorbox" href="images/parade-float.jpg" data-group="gallery-parade">
+                                <div class="templatemo-project-box">
+
+                                    <img src="images/parade-float.jpg" class="img-responsive" alt="gallery" />
+
+                                    <div class="project-overlay">
+                                        <h5>SANTA CLAUS PARADE</h5>
+                                        <hr />
+                                        <h4>Building the float</h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="col-lg-2 col-md-2 col-sm-2  gallery gallery-parade" >
+                            <a class="colorbox" href="images/parade-hammer.jpg" data-group="gallery-parade">
+                                <div class="templatemo-project-box">
+
+                                    <img src="images/parade-hammer.jpg" class="img-responsive" alt="gallery" />
+
+                                    <div class="project-overlay">
+                                        <h5>SANTA CLAUS PARADE</h5>
+                                        <hr />
+                                        <h4>Building the float</h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="col-lg-2 col-md-2 col-sm-2  gallery gallery-parade" >
+                            <a class="colorbox" href="images/parade-ezzy.jpg" data-group="gallery-parade">
+                                <div class="templatemo-project-box">
+
+                                    <img src="images/parade-ezzy.jpg" class="img-responsive" alt="gallery" />
+
+                                    <div class="project-overlay">
+                                        <h5>SANTA CLAUS PARADE</h5>
+                                        <hr />
+                                        <h4>Riding in the parade</h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="col-lg-2 col-md-2 col-sm-2  gallery gallery-parade" >
+                            <a class="colorbox" href="images/parade-closer.jpg" data-group="gallery-parade">
+                                <div class="templatemo-project-box">
+
+                                    <img src="images/parade-closer.jpg" class="img-responsive" alt="gallery" />
+
+                                    <div class="project-overlay">
+                                        <h5>SANTA CLAUS PARADE</h5>
+                                        <hr />
+                                        <h4>Parade Selfie</h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="col-lg-2 col-md-2 col-sm-2  gallery gallery-parade" >
+                            <a class="colorbox" href="images/parade-reaper.jpg" data-group="gallery-parade">
+                                <div class="templatemo-project-box">
+
+                                    <img src="images/parade-reaper.jpg" class="img-responsive" alt="gallery" />
+
+                                    <div class="project-overlay">
+                                        <h5>SANTA CLAUS PARADE</h5>
+                                        <hr />
+                                        <h4>Security</h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                         <li class="col-lg-2 col-md-2 col-sm-2  gallery gallery-parade" >
+                            <a class="colorbox" href="images/parade-closer-woodsy.jpg" data-group="gallery-parade">
+                                <div class="templatemo-project-box">
+
+                                    <img src="images/parade-closer-woodsy.jpg" class="img-responsive" alt="gallery" />
+
+                                    <div class="project-overlay">
+                                        <h5>SANTA CLAUS PARADE</h5>
+                                        <hr />
+                                        <h4>Building the float</h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="col-lg-2 col-md-2 col-sm-2  gallery gallery-parade" >
+                            <a class="colorbox" href="images/golden-age-center.jpg" data-group="gallery-parade">
+                                <div class="templatemo-project-box">
+
+                                    <img src="images/golden-age-center.jpg" class="img-responsive" alt="gallery" />
+
+                                    <div class="project-overlay">
+                                        <h5>BRUCE'S RIDE</h5>
+                                        <hr />
+                                        <h4>Golden Age Center</h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="col-lg-2 col-md-2 col-sm-2  gallery gallery-parade" >
+                            <a class="colorbox" href="images/golden-age-center.jpg" data-group="gallery-parade">
+                                <div class="templatemo-project-box">
+
+                                    <img src="images/tkmc-support.jpg" class="img-responsive" alt="gallery" />
+
+                                    <div class="project-overlay">
+                                        <h5>RIDE FOR ABI</h5>
+                                        <hr />
+                                        <h4>Dylan's Journey</h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                       
+                        
+                        <li class="col-lg-2 col-md-2 col-sm-2  gallery gallery-national" >
+                            <a class="colorbox" href="images/tkmc-national.jpg" data-group="gallery-national">
+                                <div class="templatemo-project-box">
+                                    <img src="images/tkmc-national.jpg" class="img-responsive" alt="gallery" />
+                                    <div class="project-overlay">
+                                        <h5>Club National</h5>
+                                        <hr />
+                                        <h4>Group Picture</h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="col-lg-2 col-md-2 col-sm-2  gallery gallery-national" >
+                            <a class="colorbox" href="images/national2.JPG" data-group="gallery-national">
+                                <div class="templatemo-project-box">
+                                    <img src="images/national2.JPG" class="img-responsive" alt="gallery" />
+                                    <div class="project-overlay">
+                                        <h5>Club National</h5>
+                                        <hr />
+                                        <h4>Group Picture</h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="col-lg-2 col-md-2 col-sm-2  gallery gallery-national" >
+                            <a class="colorbox" href="images/national3.JPG" data-group="gallery-national">
+                                <div class="templatemo-project-box">
+                                    <img src="images/national3.JPG" class="img-responsive" alt="gallery" />
+                                    <div class="project-overlay">
+                                        <h5>Club National</h5>
+                                        <hr />
+                                        <h4>HOGGGGG!!!</h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        
+                        <li class="col-lg-2 col-md-2 col-sm-2  gallery gallery-rides" >
+                            <a class="colorbox" href="images/tkmc-couples-ride.jpg" data-group="gallery-rides">
+                                <div class="templatemo-project-box">
+                                    <img src="images/tkmc-couples-ride.jpg" class="img-responsive" alt="gallery" />
+                                    <div class="project-overlay">
+                                        <h5>COUPLES RIDE</h5>
+                                        <hr />
+                                        <h4>Wine Tour</h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="col-lg-2 col-md-2 col-sm-2  gallery gallery-rides" >
+                            <a class="colorbox" href="images/ferry-ride.jpg" data-group="gallery-rides">
+                                <div class="templatemo-project-box">
+                                    <img src="images/ferry-ride.jpg" class="img-responsive" alt="gallery" />
+                                    <div class="project-overlay">
+                                        <h5>COUPLES RIDE</h5>
+                                        <hr />
+                                        <h4>Kingston</h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="col-lg-2 col-md-2 col-sm-2  gallery gallery-rides" >
+                            <a class="colorbox" href="images/kingston.jpg" data-group="gallery-rides">
+                                <div class="templatemo-project-box">
+                                    <img src="images/kingston.jpg" class="img-responsive" alt="gallery" />
+                                    <div class="project-overlay">
+                                        <h5>COUPLES RIDE</h5>
+                                        <hr />
+                                        <h4>Kingston</h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="col-lg-2 col-md-2 col-sm-2  gallery gallery-rides" >
+                            <a class="colorbox" href="images/club-ride-toys.jpg" data-group="gallery-rides">
+                                <div class="templatemo-project-box">
+                                    <img src="images/club-ride-toys.jpg" class="img-responsive" alt="gallery" />
+                                    <div class="project-overlay">
+                                        <h5>TOY RIDE</h5>
+                                        <hr />
+                                        <h4>Toy Ride 2016</h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="col-lg-2 col-md-2 col-sm-2  gallery gallery-rides" >
+                            <a class="colorbox" href="images/club-ride-toy2.jpg" data-group="gallery-rides">
+                                <div class="templatemo-project-box">
+                                    <img src="images/club-ride-toy2.jpg" class="img-responsive" alt="gallery" />
+                                    <div class="project-overlay">
+                                        <h5>TOY RIDE</h5>
+                                        <hr />
+                                        <h4>Toy Ride 2016</h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="col-lg-2 col-md-2 col-sm-2  gallery gallery-rides" >
+                            <a class="colorbox" href="images/tkmc-rocky-mountain.jpg" data-group="gallery-rides">
+                                <div class="templatemo-project-box">
+                                    <img src="images/tkmc-rocky-mountain.jpg" class="img-responsive" alt="gallery" />
+                                    <div class="project-overlay">
+                                        <h5>TOY RIDE</h5>
+                                        <hr />
+                                        <h4>Toy Ride 2016</h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="col-lg-2 col-md-2 col-sm-2  gallery gallery-rides" >
+                            <a class="colorbox" href="images/bruce-ride.jpg" data-group="gallery-rides">
+                                <div class="templatemo-project-box">
+                                    <img src="images/bruce-ride.jpg" class="img-responsive" alt="gallery" />
+                                    <div class="project-overlay">
+                                        <h5>TOY RIDE</h5>
+                                        <hr />
+                                        <h4>Toy Ride 2015</h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="col-lg-2 col-md-2 col-sm-2  gallery gallery-rides" >
+                            <a class="colorbox" href="images/bruce-ride2.jpg" data-group="gallery-rides">
+                                <div class="templatemo-project-box">
+                                    <img src="images/bruce-ride2.jpg" class="img-responsive" alt="gallery" />
+                                    <div class="project-overlay">
+                                        <h5>TOY RIDE</h5>
+                                        <hr />
+                                        <h4>Toy Ride 2015</h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="col-lg-2 col-md-2 col-sm-2  gallery gallery-rides" >
+                            <a class="colorbox" href="images/bruce-ride3.jpg" data-group="gallery-rides">
+                                <div class="templatemo-project-box">
+                                    <img src="images/bruce-ride3.jpg" class="img-responsive" alt="gallery" />
+                                    <div class="project-overlay">
+                                        <h5>TOY RIDE</h5>
+                                        <hr />
+                                        <h4>Bruce's Family</h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        
+                        <li class="col-lg-2 col-md-2 col-sm-2  gallery gallery-fun" >
+                            <a class="colorbox" href="images/christmas-party1.jpg" data-group="gallery-fun">
+                                <div class="templatemo-project-box">
+                                    <img src="images/christmas-party1.jpg" class="img-responsive" alt="gallery" />
+                                    <div class="project-overlay">
+                                        <h5>CHRISTMAS PARTY</h5>
+                                        <hr />
+                                        <h4>TKMC Christmas Party!</h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        
+                        <li class="col-lg-2 col-md-2 col-sm-2  gallery gallery-fun" >
+                            <a class="colorbox" href="images/christmas-cake.jpg" data-group="gallery-fun">
+                                <div class="templatemo-project-box">
+                                    <img src="images/christmas-cake.jpg" class="img-responsive" alt="gallery" />
+                                    <div class="project-overlay">
+                                        <h5>CHRISTMAS PARTY</h5>
+                                        <hr />
+                                        <h4>TKMC Christmas Party!</h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        
+                        <li class="col-lg-2 col-md-2 col-sm-2  gallery gallery-fun" >
+                            <a class="colorbox" href="images/christmas-party2.jpg" data-group="gallery-fun">
+                                <div class="templatemo-project-box">
+                                    <img src="images/christmas-party2.jpg" class="img-responsive" alt="gallery" />
+                                    <div class="project-overlay">
+                                        <h5>CHRISTMAS PARTY</h5>
+                                        <hr />
+                                        <h4>TKMC Christmas Party!</h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                         <li class="col-lg-2 col-md-2 col-sm-2  gallery gallery-fun" >
+                            <a class="colorbox" href="images/keys-ride.jpg" data-group="gallery-fun">
+                                <div class="templatemo-project-box">
+                                    <img src="images/keys-ride.jpg" class="img-responsive" alt="gallery" />
+                                    <div class="project-overlay">
+                                        <h5>FLORIDA KEYS</h5>
+                                        <hr />
+                                        <h4>JOKER, CLOSER, WOODZY</h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="col-lg-2 col-md-2 col-sm-2  gallery gallery-fun" >
+                            <a class="colorbox" href="images/sl1.jpg" data-group="gallery-fun">
+                                <div class="templatemo-project-box">
+
+                                    <img src="images/sl1.jpg" class="img-responsive" alt="gallery" />
+
+                                    <div class="project-overlay">
+                                        <h5>WELCOMING OUR SWEDISH BROTHER</h5>
+                                        <hr />
+                                        <h4>Bengt</h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="col-lg-2 col-md-2 col-sm-2  gallery gallery-fun" >
+                            <a class="colorbox" href="images/sl2.jpg" data-group="gallery-fun">
+                                <div class="templatemo-project-box">
+
+                                    <img src="images/sl2.jpg" class="img-responsive" alt="gallery" />
+
+                                    <div class="project-overlay">
+                                        <h5>WELCOMING OUR SWEDISH BROTHER</h5>
+                                        <hr />
+                                        <h4>Bengt</h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="col-lg-2 col-md-2 col-sm-2  gallery gallery-fun" >
+                            <a class="colorbox" href="images/sl3.jpg" data-group="gallery-fun">
+                                <div class="templatemo-project-box">
+
+                                    <img src="images/sl3.jpg" class="img-responsive" alt="gallery" />
+
+                                    <div class="project-overlay">
+                                        <h5>WELCOMING OUR SWEDISH BROTHER</h5>
+                                        <hr />
+                                        <h4>Bengt</h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="col-lg-2 col-md-2 col-sm-2  gallery gallery-fun" >
+                            <a class="colorbox" href="images/sl4.jpg" data-group="gallery-fun">
+                                <div class="templatemo-project-box">
+
+                                    <img src="images/sl4.jpg" class="img-responsive" alt="gallery" />
+
+                                    <div class="project-overlay">
+                                        <h5>WELCOMING OUR SWEDISH BROTHER</h5>
+                                        <hr />
+                                        <h4>Bengt</h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="col-lg-2 col-md-2 col-sm-2  gallery gallery-fun" >
+                            <a class="colorbox" href="images/sl5.jpg" data-group="gallery-fun">
+                                <div class="templatemo-project-box">
+
+                                    <img src="images/sl5.jpg" class="img-responsive" alt="gallery" />
+
+                                    <div class="project-overlay">
+                                        <h5>WELCOMING OUR SWEDISH BROTHER</h5>
+                                        <hr />
+                                        <h4>Bengt</h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+
+
+                    </ul><!-- /.gallery -->
+                </div>
+                <div class="clearfix"></div>
+                <!--<div class="row text-center">
+                    <a class="btn_loadmore btn btn-lg btn-orange" href="#" role="button">LOAD MORE</a>
+                </div>-->
+            </div><!-- /.container -->
+        </div> <!-- /.templatemo-portfolio -->
+
+         <div id="templatemo-blog">
+            <div class="container">
+                <div class="row">
+                   <div class="templatemo-line-header" >
+                        <div class="text-center">
+                            <hr class="team_hr team_hr_left hr_gray"/><span class="txt_darkgrey">NATIONALS</span>
+                            <hr class="team_hr team_hr_right hr_gray" />
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                <div class="templatemo_clear"></div>
+                <div class="blog_box">
+                    <div class="col-sm-5 col-md-6 blog_post">
+                        <ul class="list-inline">
+                            <li class="col-md-4"><a href="#">
+                                <img class="img-responsive" src="images/national1.jpg" alt="gallery 3" /></a>
+                            </li>
+                            <li class="col-md-8">
+                                <div class="pull-left">
+                                    <span class="blog_header">CLUB NATIONAL 2016</span><br/>
+                                    <span>Hosted by : <a class="link_orange" href="#"><span class="txt_orange">Grand Lodge</span></a></span>
+                                </div>
+                                <div class="pull-right">
+                                    <a class="btn btn-orange" href="club-national-2016.html" role="button">11 July 2016</a>
+                                </div>
+                                <div class="clearfix"> </div>
+                                <p class="blog_text">
+                                        Every three years we have a National Rally where a Lodge gets a chance to host all the lodges from Europe, Canada and the US.  Always a great time.  This year the Grand Lodge in hosted everyone on Omaha Nebraska. This ride is open only to full patched members.  The Next National will be hosted in Canada by our Lodge.  
+                                </p>
+                            </li>
+                        </ul>	
+                    </div><!-- /.blog_post 3 --> 
+                    <div class="col-sm-5 col-md-6 blog_post">
+                        <ul class="list-inline">
+                            <li class="col-md-4"><a href="#">
+                                <img class="img-responsive" src="images/national1.jpg" alt="gallery 3" /></a>
+                            </li>
+                            <li class="col-md-8">
+                                <div class="pull-left">
+                                    <span class="blog_header">CLUB NATIONAL 2019</span><br/>
+                                    <span>Hosted by : <a class="link_orange" href="#"><span class="txt_orange">Renfrew Lodge</span></a></span>
+                                </div>
+                                <div class="pull-right">
+                                    <a class="btn btn-orange" href="club-national-2019.html" role="button">11 July 2019</a>
+                                </div>
+                                <div class="clearfix"> </div>
+                                <p class="blog_text">
+                                        The next National will be hosted by us in Kingston Ontario!  We are well into the planning for this National and we are looking forward to being the hosts. More details coming soon. 
+                                </p>
+                            </li>
+                        </ul>	
+                    </div><!-- /.blog_post 4 --> 
+                </div>
+            </div>
+        </div>
+
+        
+        <div id="templatemo-contact">
+            <div class="container">
+                <div class="row">
+                    <div class="templatemo-line-header head_contact">
+                        <div class="text-center">
+                            <hr class="team_hr team_hr_left hr_gray"/><span class="txt_darkgrey">CONTACT US</span>
+                            <hr class="team_hr team_hr_right hr_gray"/>
+                        </div>
+                    </div>
+<!--
+                    <div class="col-md-8" ng-controller="mainCtrl">
+                        <ui-gmap-google-map center="map.center" zoom="map.zoom" options="options"></ui-gmap-google-map>
+                        <div class="clearfix"></div>
+                        <i>You can find, <span class="txt_orange">TKMC Canada</span> in Renfrew Ontario.</i>
+                    </div>
+-->
+                    <div class="col-md-8">
+                        <div class="templatemo-contact-map" id="map-canvas"> </div>  
+                        <div class="clearfix"></div>
+                        <i>You can find, <span class="txt_orange">TKMC Canada</span> in Renfrew Ontario.</i>
+                    </div>
+                    <div class="col-md-4 contact_right" ng-controller="TKMCFormController as formCtrl" cg-busy="req">
+                        <p>TKMC Canada Renfrew Lodge - Commander's Address</p>
+                        <p><img src="images/location.png" alt="icon 1" />Renfrew</p>
+                        <p><img src="images/phone1.png"  alt="icon 2" />613 433-2724</p>
+                        <p><img src="images/globe.png" alt="icon 3" /><a class="link_orange" href="#"><span class="txt_orange">www.renfrewtkmc.org/</span></a></p>
+<!--                         <div class="spinner" ng-show="loading"></div>-->
+                        <form name="tkmcContactForm" class="form-horizontal">
+                            <script type="text/ng-template" id="alert.html">
+                                <div ng-transclude></div>
+                            </script>
+                            <!-- Alerts -->
+                            <div uib-alert template-url="alert.html" ng-if="showSuccessAlert" ng-class="'alert-success'" dismiss-on-timeout=5000 close='closeMessage()'>
+                                    {{successMessage}}
+                            </div> 
+                            <div uib-alert template-url="alert.html" ng-if="showErrorAlert"  ng-class="'alert-danger'"   dismiss-on-timeout=5000 close='closeMessage()'>
+                                    {{errorMessage}}
+                            </div>
+                            
+                             <div class="clearfix"></div>
+                            <!-- Show spinner while contact details are saved   -->
+                           
+                            <div class="form-group">
+                                <input type="text" class="form-control" ng-model="contactName" placeholder="Your Name..." maxlength="40" />
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" ng-model="contactEmail" placeholder="Your Email..." maxlength="40" />
+                            </div>
+                            <div class="form-group">
+                                <textarea  class="form-control" style="height: 130px;" ng-model="contactMessage" placeholder="Write down your message..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-orange pull-right" ng-click="formsubmit(tkmcContactForm.$valid)"  ng-disabled="tkmcContactForm.$invalid">SEND</button>
+                            
+                        </form>
+                        	 
+                    </div>
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </div><!-- /#templatemo-contact -->
+
+
+        <div class="templatemo-tweets">
+            <div class="container">
+                <div class="row" style="margin-top:20px;">
+                        <div class="col-md-2">
+                        </div>
+                        <div class="col-md-1">
+                                <img src="images/quote.png" alt="icon" />
+                        </div>
+                        <div class="col-md-7 tweet_txt" >
+                                <span>Templar is truly a fearless knight, and secure on every side,
+                                        for his soul is protected by the armor of faith,
+                                        just as his body is protected by the armor of steel.
+                                        He is thus doubly armed and need fear neither demons nor men.</span>
+                                <br/>
+                                <span class="twitter_user">AD 1135 by Bernard de Clairvax</span>
+                        </div>
+                        <div class="col-md-2">
+                        </div>
+                 </div><!-- /.row -->
+            </div><!-- /.container -->
+        </div>
+
+        <div class="templatemo-partners" >
+            <div class="container">
+                <div class="row">
+
+
+                    <div class="templatemo-line-header" >
+                        <div class="text-center">
+                            <hr class="team_hr team_hr_left hr_gray"/><span class="txt_darkgrey">OUR PARTNERS</span>
+                            <hr class="team_hr team_hr_right hr_gray" />
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+
+
+                    <div class="text-center">
+
+                        <div style="margin-top:60px;">
+                            <ul class="list-inline">
+                                <li class="col-sm-2 col-md-2 templatemo-partner-item">
+                                    <a href="#"><img src="images/rocky-mountain-house.jpg" class="img-responsive" alt="rocky mountain house" /></a>
+                                </li>
+                                <li class="col-sm-2 col-md-2 templatemo-partner-item">
+                                    <a href="#"><img src="images/bell-lumber.png" class="img-responsive" alt="bell lumber" /></a>
+                                </li>
+                                <li class="col-sm-2 col-md-2 templatemo-partner-item">
+                                    <a href="#"><img src="images/fte.png" class="img-responsive" alt="fte" /></a>
+                                </li>
+                                <li class="col-sm-2 col-md-2 templatemo-partner-item">
+                                    <a href="#"><img src="images/dale-perneel-interiors.png" class="img-responsive" alt="dale perneel interiors" /></a>
+                                </li>
+                                <li class="col-sm-2 col-md-2 templatemo-partner-item">
+                                    <a href="#"><img src="images/tim-hortons.png" class="img-responsive" alt="tim-hortons" /></a>
+                                </li>
+                                <li class="col-sm-2 col-md-2 templatemo-partner-item">
+                                    <a href="#"><img src="images/renfrew-chrysler.png" class="img-responsive" alt="partner 6" /></a>
+                                </li>
+                                <li class="col-sm-2 col-md-2 templatemo-partner-item">
+                                    <a href="#"><img src="images/FCI.PNG" class="img-responsive" alt="partner 6" /></a>
+                                </li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+   
+        <tkmc-footer></tkmc-footer>
+
+        <script src="js/jquery.min.js" type="text/javascript"></script> 
+        <script src="js/bootstrap.min.js"  type="text/javascript"></script>
+        <script src="js/stickUp.min.js"  type="text/javascript"></script>
+        <script src="js/colorbox/jquery.colorbox-min.js"  type="text/javascript"></script>
+        <script src="js/templatemo_script.js"  type="text/javascript"></script>
+        <script src="js/tkmc.js"></script>
+        
+		<!-- templatemo 395 urbanic -->
+    </body>
+</html>

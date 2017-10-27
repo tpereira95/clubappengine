@@ -116,18 +116,18 @@
                                 </button>
                                 <a href="#" class="navbar-brand"><img src="images/TKMCLogo.png" title="TKMC" /></a>
                         </div>
-                        <div class="login-form" ng-controller="loginCtrl">
+                        <div class="login-form" ng-controller="loginCtrl as l">
                             <span><p class="txt_orange">Member Login</p></span>
-                            <form class="form-inline" ng-submit="submitLogin()">
+                            <form name="tkmcLoginForm" class="form-inline" ng-submit="submitLogin()">
                                   <div class="form-group">
                                     <label for="userid">UserID:</label>
-                                    <input id="LoginUserID" type="text" class="form-control input-sm" name="userID" ng-model="tkmc.userid">
+                                    <input id="LoginUserID" type="text" class="form-control input-sm" name="userID" ng-model="userid"  placeholder="your username">
                                   </div>
                                   <div class="form-group">
                                     <label for="password">Password:</label>
-                                    <input id="loginPassword" type="password" class="form-control input-sm" name="password" ng-model="tkmc.password">
+                                    <input id="loginPassword" type="password" class="form-control input-sm" name="password" ng-model="password"  placeholder="your password">
                                   </div>
-                                  <button id="loginSubmit" type="submit" class="btn btn-default login-form-submit">Submit
+                                  <button id="loginSubmit" type="submit" class="btn btn-default login-form-submit" ng-disabled={{invalid}}>Submit
                                   </button>
                             </form>
                         </div>
@@ -1133,7 +1133,7 @@
                             <div class="form-group">
                                 <textarea  class="form-control" style="height: 130px;" ng-model="contactMessage" placeholder="Write down your message..."></textarea>
                             </div>
-                            <button type="submit" class="btn btn-orange pull-right" ng-click="formsubmit(tkmcContactForm.$valid)"  ng-disabled="tkmcContactForm.$invalid">SEND</button>
+                            <button type="submit" class="btn btn-orange pull-right" ng-click="formsubmit(tkmcContactForm.$valid)"  ng-disabled="tkmcContactForm.invalid">SEND</button>
                             
                         </form>
                         	 

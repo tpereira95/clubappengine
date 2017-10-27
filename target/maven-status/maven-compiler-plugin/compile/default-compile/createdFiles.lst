@@ -1,2 +1,5 @@
+com\tkmc\db\objects\TKMCUser$TKMCBuilder.class
 com\tkmc\appengine\HelloAppEngine.class
+com\tkmc\appengine\LoginServlet.class
 com\tkmc\db\objects\TKMCUser$1.class
+com\tkmc\db\objects\TKMCUser.class

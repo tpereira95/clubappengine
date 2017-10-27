@@ -48,7 +48,7 @@ public class LoginServlet extends HttpServlet {
 		 System.out.println("userid is " + userid + " " + password);
 		 
 		 
-		 JSONObject userObj = new JSONObject(); 
+		 JSONObject userObj = new JSONObject();  
 		 
 		 userObj.put("userid", userid);
 		 userObj.put("password", password);

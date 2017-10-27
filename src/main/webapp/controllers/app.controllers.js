@@ -53,26 +53,33 @@ var app = angular.module('tkmcApp');
 app.controller("loginCtrl", [ '$scope', '$http', '$window', function($scope, $http, $window) {
  
     $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded; charset=utf-8";
-     
+    var f = $scope.userid;
+     if($scope.userid === '' || $scope.userid === undefined || $scope.password === '' || $scope.password === undefined){
+      $scope.invalid = true;
+     }
+    if(!$scope.userid === '' || !$scope.userid === undefined || !$scope.password === '' || !$scope.password === undefined){
+      $scope.invalid = false;
+     }
     
-    $scope.submitLogin = function() {
-        $http({
-            url : '/login',
-            method : "POST",
-            data : {
-                'userID' : $scope.tkmc.userid,
-                'password' : $scope.tkmc.password
-            } 
-        }).success(function(data, response, status) {
-            console.log(response.data);
-            $scope.data = data;
-           $scope.message = response.data;
-            $window.location = '/tkmc/welcome.html';
-        }, function(response) {
-            //fail case 
-            console.log(response);
-            $scope.message = response; 
-        });
- 
-    };
+    if(!$scope.invalid){
+        $scope.submitLogin = function() {
+            $http({
+                url : '/login',
+                method : "POST",
+                data : {
+                    'userID' : $scope.userid,
+                    'password' : $scope.password
+                } 
+            }).success(function(data, response, status) {
+                console.log(response.data);
+                $scope.data = data;
+               $scope.message = response.data;
+               // $window.location = '/tkmc/welcome.html';
+            }, function(response) {
+                //fail case 
+                console.log(response);
+                $scope.message = response; 
+            });
+        };
+    }
 } ]);
